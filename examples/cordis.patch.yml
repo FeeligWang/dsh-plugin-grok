@@ -1,0 +1,13 @@
+# Append to $DSH_HOME/profiles/<profile>/cordis.patch.yml
+#
+# Relative `name` is anchored to this patch file's directory, so the plugin can
+# live under <profile>/plugins/ without becoming a pnpm dependency.
+- insert:
+    - id: grok-bot
+      name: './plugins/grok-bot/src/index.js'
+      config:
+        # Prefer CROSSWALK_KEY in the environment; `key:` here also works but
+        # puts the secret in a file.
+        crosswalk: grokdsh
+        grokName: Grok Bot
+        staleMinutes: 30
